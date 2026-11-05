@@ -58,14 +58,27 @@ class TableroDeJuego extends StatelessWidget {
                     ),
                     Expanded(
                       child: Container(
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Colors.blueGrey[800]),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: Colors.blueGrey[800],
+                        ),
                         margin: EdgeInsets.all(5),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              _buildPlayerPanel("Jugador 1", Icons.person, Colors.blue, 120),
-                              _buildPlayerPanel("Jugador 2", Icons.person_outlined, Colors.red, 120)
-                            ]
+                          children: [
+                            _buildPlayerPanel(
+                              "Jugador 1",
+                              Icons.person,
+                              Colors.blue,
+                              120,
+                            ),
+                            _buildPlayerPanel(
+                              "Jugador 2",
+                              Icons.person_outlined,
+                              Colors.red,
+                              120,
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -91,6 +104,36 @@ class TableroDeJuego extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Expanded(
+                      child: ListView(
+                        children: [
+                          _buildHistoryTile(
+                            1,
+                            "Jugador 1",
+                            Colors.blue,
+                            "Caballero a la casilla C4",
+                          ),
+                          _buildHistoryTile(
+                            2,
+                            "Jugador 2",
+                            Colors.redAccent,
+                            "Caballero a la casilla C4",
+                          ),
+                          _buildHistoryTile(
+                            3,
+                            "Jugador 1",
+                            Colors.blue,
+                            "Caballero a la casilla C4",
+                          ),
+                          _buildHistoryTile(
+                            4,
+                            "Jugador 2",
+                            Colors.redAccent,
+                            "Caballero a la casilla C4",
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -106,11 +149,37 @@ Widget _buildPlayerPanel(String name, IconData icon, Color color, int points) {
   return Column(
     mainAxisSize: MainAxisSize.min,
     children: [
-      Text(name, style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+      Text(
+        name,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),
+      ),
       const SizedBox(height: 12),
       Icon(icon, color: color, size: 48),
       const SizedBox(height: 12),
       Text("Puntos: $points", style: const TextStyle(color: Colors.white)),
     ],
+  );
+}
+
+Widget _buildHistoryTile(int indice, String jugador, Color color, String descripcion) {
+  return ListTile(
+    leading: CircleAvatar(
+      backgroundColor: color,
+      child: Text(
+        indice.toString(),
+        style: const TextStyle(color: Colors.white),
+      ),
+    ),
+    title: Text(
+      "$jugador movió pieza",
+      style: const TextStyle(
+        color: Colors.black,
+      ),
+    ),
+    subtitle: Text(descripcion, style: const TextStyle(color: Colors.grey)),
+    trailing: const Icon(Icons.history, color: Colors.black),
   );
 }
