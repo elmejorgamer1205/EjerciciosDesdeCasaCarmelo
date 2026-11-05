@@ -13,7 +13,7 @@ class TableroDeJuego extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text("Tablero de Juego Táctico"),
+          title: const Text("Tablero de Juego Táctico", style: TextStyle(color: Colors.grey),),
           backgroundColor: Colors.blueGrey[900],
         ),
         body: Column(
@@ -110,25 +110,25 @@ class TableroDeJuego extends StatelessWidget {
                           _buildHistoryTile(
                             1,
                             "Jugador 1",
-                            Colors.blue,
+                            Colors.red,
                             "Caballero a la casilla C4",
                           ),
                           _buildHistoryTile(
                             2,
                             "Jugador 2",
-                            Colors.redAccent,
+                            Colors.orange,
                             "Caballero a la casilla C4",
                           ),
                           _buildHistoryTile(
                             3,
                             "Jugador 1",
-                            Colors.blue,
+                            Colors.red,
                             "Caballero a la casilla C4",
                           ),
                           _buildHistoryTile(
                             4,
                             "Jugador 2",
-                            Colors.redAccent,
+                            Colors.orange,
                             "Caballero a la casilla C4",
                           ),
                         ],
