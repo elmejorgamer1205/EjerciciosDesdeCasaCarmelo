@@ -28,7 +28,6 @@ class TableroDeJuego extends StatelessWidget {
                     Expanded(
                       flex: 2,
                       child: Container(
-                        color: Colors.blueGrey[700],
                         margin: EdgeInsets.all(5),
                         child: Column(
                           children: List.generate(4, (row) {
@@ -36,14 +35,19 @@ class TableroDeJuego extends StatelessWidget {
                               child: Row(
                                 children: List.generate(4, (colunm) {
                                   return Expanded(
-                                      child: Container(
-                                        margin: const EdgeInsets.all(5),
-                                        decoration: BoxDecoration(color: Colors.blueGrey[400], borderRadius: BorderRadius.circular(5)
-                                        ),
-                                        child: Center(
-                                          child: Icon(Icons.shield, color: Colors.grey,),
+                                    child: Container(
+                                      margin: const EdgeInsets.all(2),
+                                      decoration: BoxDecoration(
+                                        color: Colors.blueGrey[400],
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.shield,
+                                          color: Colors.grey,
                                         ),
                                       ),
+                                    ),
                                   );
                                 }),
                               ),
@@ -54,9 +58,15 @@ class TableroDeJuego extends StatelessWidget {
                     ),
                     Expanded(
                       child: Container(
-                        color: Colors.blueGrey[800],
+                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(5),color: Colors.blueGrey[800]),
                         margin: EdgeInsets.all(5),
-                        child: Column(),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              _buildPlayerPanel("Jugador 1", Icons.person, Colors.blue, 120),
+                              _buildPlayerPanel("Jugador 2", Icons.person_outlined, Colors.red, 120)
+                            ]
+                        ),
                       ),
                     ),
                   ],
@@ -90,4 +100,17 @@ class TableroDeJuego extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _buildPlayerPanel(String name, IconData icon, Color color, int points) {
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    children: [
+      Text(name, style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+      const SizedBox(height: 12),
+      Icon(icon, color: color, size: 48),
+      const SizedBox(height: 12),
+      Text("Puntos: $points", style: const TextStyle(color: Colors.white)),
+    ],
+  );
 }
