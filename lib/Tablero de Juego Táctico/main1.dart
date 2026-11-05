@@ -29,13 +29,33 @@ class TableroDeJuego extends StatelessWidget {
                       flex: 2,
                       child: Container(
                         color: Colors.blueGrey[700],
-                        margin: EdgeInsets.all(10),
+                        margin: EdgeInsets.all(5),
+                        child: Column(
+                          children: List.generate(4, (row) {
+                            return Expanded(
+                              child: Row(
+                                children: List.generate(4, (colunm) {
+                                  return Expanded(
+                                      child: Container(
+                                        margin: const EdgeInsets.all(5),
+                                        decoration: BoxDecoration(color: Colors.blueGrey[400], borderRadius: BorderRadius.circular(5)
+                                        ),
+                                        child: Center(
+                                          child: Icon(Icons.shield, color: Colors.grey,),
+                                        ),
+                                      ),
+                                  );
+                                }),
+                              ),
+                            );
+                          }),
+                        ),
                       ),
                     ),
                     Expanded(
                       child: Container(
                         color: Colors.blueGrey[800],
-                        margin: EdgeInsets.all(10),
+                        margin: EdgeInsets.all(5),
                         child: Column(),
                       ),
                     ),
@@ -52,12 +72,12 @@ class TableroDeJuego extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.all(12),
                       child: Text(
-                          "Historial de Movimientos",
-                          textAlign: TextAlign.center,
+                        "Historial de Movimientos",
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                            color: Colors.black87
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Colors.black87,
                         ),
                       ),
                     ),
