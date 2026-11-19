@@ -1,10 +1,10 @@
-import 'package:ejercicios_desde_casa_carmelo/Solar%20System/Planet.dart';
-import 'package:ejercicios_desde_casa_carmelo/Solar%20System/planet_data.dart';
+import 'package:ejercicios_desde_casa_carmelo/Solar%20System/planets_data.dart';
 import 'package:flutter/material.dart';
-import 'PlanetDetailScreen.dart';
+import 'Planet.dart';
+import 'RouteGenerator.dart';
 
-class PlanetsScreen extends StatelessWidget {
-  const PlanetsScreen({super.key});
+class PlantesScreen extends StatelessWidget {
+  const PlantesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +26,8 @@ class PlanetsScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           final planet = planets[index];
           return ListTile(
-            contentPadding: const EdgeInsets.symmetric(
-              horizontal: 16.0,
-              vertical: 10.0,
-            ),
-            leading: Image.asset(
-              planet.image,
-              width: 52,
-              height: 52,
-            ),
+            contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+            leading: Image.asset(planet.image, width: 52, height: 52),
             title: Padding(
               padding: const EdgeInsets.only(left: 10.0),
               child: Text(
@@ -49,16 +42,12 @@ class PlanetsScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 13, color: Colors.grey[600]),
               ),
             ),
-            trailing: const Icon(
-              Icons.keyboard_arrow_right,
-              color: Colors.grey,
-            ),
+            trailing: const Icon(Icons.keyboard_arrow_right, color: Colors.grey),
             onTap: () {
-              Navigator.push(
+              Navigator.pushNamed(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => PlanetDetailsScreen(planet: planet,),
-                ),
+                RouteGenerator.detailsRoute,
+                arguments: planet,
               );
             },
           );

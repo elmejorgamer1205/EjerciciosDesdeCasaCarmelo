@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'PlanetsScreen.dart';
+import 'RouteGenerator.dart';
 
-void main() {
-  runApp(const SolarSystemApp());
-}
+void main() => runApp(const SolarSystemApp());
 
 class SolarSystemApp extends StatelessWidget {
   const SolarSystemApp({super.key});
@@ -12,7 +10,8 @@ class SolarSystemApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: true,
-      home: PlanetsScreen(),
+      initialRoute: RouteGenerator.homeRoute,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
