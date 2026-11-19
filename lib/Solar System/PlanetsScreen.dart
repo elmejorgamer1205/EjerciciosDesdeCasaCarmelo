@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(const SolarSystemApp());
 }
 
-class SolarSystemApp extends StatelessWidget{
+class SolarSystemApp extends StatelessWidget {
   const SolarSystemApp({super.key});
 
   @override
@@ -17,19 +16,18 @@ class SolarSystemApp extends StatelessWidget{
   }
 }
 
-class PlanetsScreen extends StatelessWidget{
+class PlanetsScreen extends StatelessWidget {
   const PlanetsScreen({super.key});
 
-  Widget _buildPlanetRow(String name, String image){
-    return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-        child: Row(
-          children: [
-            Image.asset(image, width: 52, height: 52),
-            const SizedBox(width: 24),
-            Text(name, style: TextStyle(fontSize: 16, color: Colors.black),)
-          ],
-        ),
+  Widget _buildPlanetRow(String name, String image) {
+    return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      leading: Image.asset(image, width: 52, height: 52),
+      title: Padding(
+        padding: const EdgeInsets.only(left: 8),
+        child: Text(name, style: TextStyle(fontSize: 16, color: Colors.black)),
+      ),
+      trailing: const Icon(Icons.keyboard_arrow_right, color: Colors.grey,),
     );
   }
 
@@ -37,13 +35,24 @@ class PlanetsScreen extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(child: ListView(
-        children: [
-          _buildPlanetRow("Earth", "assets/images/png/earth.png"),
-          _buildPlanetRow("Venus", "assets/images/png/venus.png"),
-          _buildPlanetRow("Mercury", "assets/images/png/mercury.png")
-        ],
-      )),
+      appBar: AppBar(
+        title: const Text("Solar System", style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.grey,
+      ),
+      body: SafeArea(
+        child: ListView(
+          children: [
+            _buildPlanetRow("Earth", "assets/images/png/earth.png"),
+            const Divider(height: 1),
+            _buildPlanetRow("Venus", "assets/images/png/venus.png"),
+            const Divider(height: 1),
+            _buildPlanetRow("Mercury", "assets/images/png/mercury.png"),
+            const Divider(height: 1),
+          ],
+        ),
+      ),
     );
   }
 }
