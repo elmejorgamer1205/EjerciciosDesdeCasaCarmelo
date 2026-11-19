@@ -1,4 +1,4 @@
-import 'package:ejercicios_desde_casa_carmelo/Solar%20System/planet.dart';
+import 'package:ejercicios_desde_casa_carmelo/Solar%20System/Planet.dart';
 import 'package:ejercicios_desde_casa_carmelo/Solar%20System/planet_data.dart';
 import 'package:flutter/material.dart';
 import 'PlanetDetailScreen.dart';
@@ -57,7 +57,7 @@ class PlanetsScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const PlanetDetailsScreen(),
+                  builder: (context) => PlanetDetailsScreen(planet: planet,),
                 ),
               );
             },

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'Planet.dart';
 
 class PlanetDetailsScreen extends StatelessWidget {
-  const PlanetDetailsScreen({super.key});
+  final Planet planet;
+
+  const PlanetDetailsScreen({super.key, required this.planet});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class PlanetDetailsScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Image.asset(
-          'assets/images/png/earth.png',
+          planet.image,
           width: double.infinity,
           fit: BoxFit.contain,
         ),
