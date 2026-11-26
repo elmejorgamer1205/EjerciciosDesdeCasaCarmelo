@@ -1,7 +1,9 @@
-import 'package:ejercicios_desde_casa_carmelo/Solar%20System/planets_data.dart';
+import 'package:ejercicios_desde_casa_carmelo/Solar%20System/data/planets_data.dart';
 import 'package:flutter/material.dart';
-import 'Planet.dart';
-import 'RouteGenerator.dart';
+
+import '../model/Planet.dart';
+import '../model/RouteGenerator.dart';
+
 
 class PlantesScreen extends StatelessWidget {
   const PlantesScreen({super.key});

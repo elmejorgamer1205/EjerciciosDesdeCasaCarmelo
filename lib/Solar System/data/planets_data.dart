@@ -1,4 +1,6 @@
-import 'Planet.dart';
+
+
+import '../model/Planet.dart';
 
 class PlanetsData {
   static List<Planet> getPlanets() {

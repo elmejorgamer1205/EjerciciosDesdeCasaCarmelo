@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'Planet.dart';
+import '../model/Planet.dart';
+
 
 class PlanetDetailsScreen extends StatelessWidget {
   final Planet planet;

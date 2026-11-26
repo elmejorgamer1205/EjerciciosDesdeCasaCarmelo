@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'RouteGenerator.dart';
+import '../model/RouteGenerator.dart';
 
 void main() => runApp(const SolarSystemApp());
 

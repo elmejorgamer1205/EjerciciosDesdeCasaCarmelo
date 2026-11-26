@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'PlanetDetailScreen.dart';
-import 'PlanetsScreen.dart';
+import '../screens/PlanetDetailScreen.dart';
+import '../screens/PlanetsScreen.dart';
 import 'Planet.dart';
 
 
