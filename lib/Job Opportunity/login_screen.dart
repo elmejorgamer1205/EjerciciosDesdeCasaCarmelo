@@ -53,7 +53,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                         decoration: const InputDecoration(
                           labelText: 'Usuario',
-                          border: OutlineInputBorder(),
                         ),
                       ),
 
@@ -69,11 +68,25 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                           return result;
                         },
+                        keyboardType: TextInputType.name,
+                        obscureText: true,
                         decoration: const InputDecoration(
                           labelText: "Contraseña",
-                          border: OutlineInputBorder(),
                         ),
-                      )
+                      ),
+
+                      const SizedBox(height: 24),
+
+                      ElevatedButton(
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(content: Text('Procesando datos...')),
+                            );
+                          }
+                        },
+                        child: const Text('Enviar'),
+                      ),
                     ],
                   )
                 ),
