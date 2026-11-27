@@ -1,3 +1,4 @@
+import 'package:ejercicios_desde_casa_carmelo/Job%20Opportunity/config_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -79,11 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                       ElevatedButton(
                         onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Procesando datos...')),
-                            );
-                          }
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ConfigScreen(),));
                         },
                         child: const Text('Enviar'),
                       ),
